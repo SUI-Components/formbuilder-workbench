@@ -13,9 +13,12 @@
   },
   "devDependencies": {
     "@s-ui/bundler": "5",
-    "@s-ui/lint": "3"
+    "@s-ui/lint": "3",
+    "@s-ui/mono": "1"
   },
-  "scripts": {},
+  "scripts": {
+    "co": "npx sui-mono commit"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -26,5 +29,10 @@
   },
   "stylelint": {
     "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": "@s-ui/mono/src/types"
+    }
   }
 }
