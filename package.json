@@ -1,0 +1,30 @@
+{
+  "name": "form-builder-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@s-ui/component-peer-dependencies": "1",
+    "@s-ui/react-molecule-modal": "1",
+    "@s-ui/react-molecule-textarea-field": "beta",
+    "@schibstedspain/ma-form-builder": "1",
+    "@schibstedspain/ma-shared-when": "1",
+    "@schibstedspain/sui-atom-button": "1.32.0"
+  },
+  "devDependencies": {
+    "@s-ui/bundler": "5",
+    "@s-ui/lint": "3"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
+  "stylelint": {
+    "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
+  }
+}
