@@ -1,0 +1,49 @@
+@import '../../styles/settings.scss';
+
+.Tabs {
+  display: flex;
+  flex-direction: column;
+
+  &-header {
+    background-color: $c-monokai-accent;
+    color: $c-monokai-accent-foreground;
+    align-items: center;
+    display: flex;
+    height: $h-Headers;
+    justify-content: space-between;
+    padding: 0 $p-l;
+
+    &Tabs {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &Actions {}
+  }
+
+
+
+  &-button {
+    font-size: $fz-base;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-top: $bdw-l solid $c-monokai-accent;
+    height: $h-Headers;
+    padding: 0 $p-l;
+    display: flex;
+    align-items: center;
+    background: $c-monokai-accent;
+    color: $c-monokai-accent-foreground;
+
+    &.is-Active {
+    border-top: $bdw-l solid $c-monokai-action;
+    background: $c-monokai-dark;
+    color: $c-monokai-dark-foreground;
+    }
+  }
+}
+
+.Tab {
+  display: flex;
+}

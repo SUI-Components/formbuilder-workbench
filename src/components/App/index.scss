@@ -1,0 +1,56 @@
+@import '../../styles/settings.scss';
+
+.App {
+  display: flex;
+  margin: 0;
+
+  align-items: stretch;
+
+
+  &-editor {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+
+    &Canvas {
+      width: 100%;
+      height: calc(100vh - #{$h-Headers});
+    }
+  }
+
+  &-preview {
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+
+    &Title {
+      background-color: $c-monokai-accent;
+      color: $c-monokai-accent-foreground;
+      align-items: center;
+      display: flex;
+      height: $h-Headers;
+      justify-content: space-between;
+      padding: 0 $p-l;
+
+      &Literal {
+        font-size: $fz-base;
+        font-weight: $fw-bold;
+      }
+    }
+  }
+
+  &-formContainer {
+    box-sizing: content-box;
+    flex-grow: 1;
+    height: calc(100vh - #{$h-Headers});
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: $p-l;
+
+    &.has-Error {
+      background-color: $c-error;
+      color: $c-white;
+      font-size: $fz-xs;
+    }
+  }
+}
