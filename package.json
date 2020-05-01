@@ -5,11 +5,15 @@
   "main": "index.js",
   "dependencies": {
     "@s-ui/component-peer-dependencies": "1",
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-upload": "2.1.0",
+    "@s-ui/react-form-builder": "2.1.0",
     "@s-ui/react-molecule-modal": "1",
-    "@s-ui/react-molecule-textarea-field": "beta",
-    "@schibstedspain/ma-form-builder": "1",
-    "@schibstedspain/ma-shared-when": "1",
-    "@schibstedspain/sui-atom-button": "1.32.0"
+    "@s-ui/react-molecule-textarea-field": "3",
+    "ace-builds": "1.4.11",
+    "classnames": "2.2.6",
+    "react-ace": "8.1.0",
+    "reset-css": "5.0.1"
   },
   "devDependencies": {
     "@s-ui/bundler": "5",
@@ -34,5 +38,6 @@
     "validate-commit-msg": {
       "types": "@s-ui/mono/src/types"
     }
-  }
+  },
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js"
 }
