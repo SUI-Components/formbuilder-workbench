@@ -17,11 +17,7 @@
       display: flex;
       flex-direction: row;
     }
-
-    &Actions {}
   }
-
-
 
   &-button {
     font-size: $fz-base;
@@ -37,9 +33,9 @@
     color: $c-monokai-accent-foreground;
 
     &.is-Active {
-    border-top: $bdw-l solid $c-monokai-action;
-    background: $c-monokai-dark;
-    color: $c-monokai-dark-foreground;
+      border-top: $bdw-l solid $c-monokai-action;
+      background: $c-monokai-dark;
+      color: $c-monokai-dark-foreground;
     }
   }
 }

@@ -79,14 +79,12 @@ $c-favorite-dark: color-variation($c-favorite, $c-dark-step) !default;
 
 // Monokai
 $c-monokai-dark: #272822 !default;
-$c-monokai-action: #FD971F !default;
+$c-monokai-action: #fd971f !default;
 $c-monokai-accent: #1e1f1a !default;
 
 $c-monokai-dark-foreground: #ffffff !default;
 $c-monokai-accent-foreground: #ffffff !default;
 $c-monokai-action-foreground: #ffffff !default;
-
-
 
 // Absolute colors / common colors to avoid linting alerts on hardcoded values
 $c-white: #ffffff !default;
