@@ -1,8 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import cx from 'classnames'
 
 export class Tabs extends React.Component {
+  static propTypes = {
+    actions: PropTypes.element,
+    children: PropTypes.element,
+    defaultIndex: PropTypes.number
+  }
+
   state = {
     activeIndex: this.props.defaultIndex || 0
   }
@@ -42,4 +49,8 @@ export class Tabs extends React.Component {
 
 export function Tab({children}) {
   return <div className="Tab">{children}</div>
+}
+
+Tab.propTypes = {
+  children: PropTypes.element
 }

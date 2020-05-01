@@ -2,7 +2,6 @@ import React, {useCallback, useReducer} from 'react'
 import cx from 'classnames'
 
 import FormBuilder from '@s-ui/react-form-builder'
-import MoleculeTextareaField from '@s-ui/react-molecule-textarea-field'
 import AtomButton from '@s-ui/react-atom-button'
 import MoleculeModal from '@s-ui/react-molecule-modal'
 import AtomUpload, {uploadStatuses} from '@s-ui/react-atom-upload'
@@ -80,13 +79,6 @@ const App = () => {
             iconActive={<Upload height="100%" width="100%" />}
             textActive="Click or Drag&Drop to Upload"
           />
-          {/* <MoleculeTextareaField
-            id="form"
-            label="Form"
-            errorText={store.modal.error}
-            value={store.modal.text}
-            onChange={handlerFormTextArea}
-          /> */}
         </MoleculeModal>
         <Tabs
           defaultIndex={0}
