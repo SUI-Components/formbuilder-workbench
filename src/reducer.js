@@ -42,13 +42,14 @@ export const reducer = (state, action) => {
       }
     }
     case 'FIELDS_UPDATE': {
-      const [err, nextFields] = parseOrFail(action.value)
-      if (err) {
+      const [error, nextFields] = parseOrFail(action.value)
+
+      if (error) {
         return {
           ...state,
           fields: {
             text: action.value,
-            error: JSON_ERROR
+            error
           }
         }
       } else {
@@ -62,19 +63,19 @@ export const reducer = (state, action) => {
           },
           fields: {
             text: action.value,
-            error: ''
+            error: null
           }
         }
       }
     }
     case 'RULES_UPDATE': {
-      const [err, nextRules] = parseOrFail(action.value)
-      if (err) {
+      const [error, nextRules] = parseOrFail(action.value)
+      if (error) {
         return {
           ...state,
           rules: {
             text: action.value,
-            error: 'Bad JSON'
+            error
           }
         }
       } else {
@@ -88,7 +89,7 @@ export const reducer = (state, action) => {
           },
           rules: {
             text: action.value,
-            error: ''
+            error: null
           }
         }
       }
@@ -100,14 +101,14 @@ export const reducer = (state, action) => {
       }
     }
     case 'FORM_NEW': {
-      const [err, nextForm] = parseOrFail(action.nextForm)
-      if (err) {
+      const [error, nextForm] = parseOrFail(action.nextForm)
+      if (error) {
         return {
           ...state,
           modal: {
             ...state.modal,
             text: action.nextForm,
-            error: JSON_ERROR
+            error
           }
         }
       } else {
