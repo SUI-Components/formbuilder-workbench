@@ -1,4 +1,3 @@
-const JSON_ERROR = 'JSON bad formatted'
 const parseOrFail = str => {
   let obj
   try {
