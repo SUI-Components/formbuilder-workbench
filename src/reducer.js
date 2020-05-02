@@ -26,15 +26,15 @@ const BASE_FORM = {
   }
 }
 
-const [error, store] = parseOrFail(window.localStorage.getItem(STORE_KEY))
+const [, store] = parseOrFail(window.localStorage.getItem(STORE_KEY))
 const STORE_BASE = {
   json: BASE_FORM,
-  initialFields: {},
+  fieldsValues: {},
   modal: {open: false, text: '', error: null},
   fields: {text: JSON.stringify(BASE_FORM.form.fields, null, 2)},
   rules: {text: JSON.stringify(BASE_FORM.form.rules, null, 2)}
 }
-export const STORE = error !== undefined ? STORE_BASE : store
+export const STORE = store || STORE_BASE
 
 const saveLocalStorage = name => state => {
   if (!state.fields.error && !state.rules.error) {
@@ -77,7 +77,8 @@ const internalReducer = (state, action) => {
           fields: {
             text: action.value,
             error: null
-          }
+          },
+          fieldsValues: {}
         }
       }
     }
@@ -103,14 +104,15 @@ const internalReducer = (state, action) => {
           rules: {
             text: action.value,
             error: null
-          }
+          },
+          fieldsValues: {}
         }
       }
     }
     case 'FORM_UPDATE': {
       return {
         ...state,
-        initialFields: action.fields
+        fieldsValues: action.fields
       }
     }
     case 'FORM_NEW': {
