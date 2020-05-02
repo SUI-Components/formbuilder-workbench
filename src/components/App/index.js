@@ -7,6 +7,7 @@ import MoleculeModal from '@s-ui/react-molecule-modal'
 import AtomUpload, {uploadStatuses} from '@s-ui/react-atom-upload'
 
 import Upload from '../Icons/Upload'
+import Github from '../Icons/Github'
 import {reader} from '../libs/files'
 
 import {reducer, STORE} from '../../reducer'
@@ -116,9 +117,6 @@ const App = () => {
               value={store.fields.text}
               highlightActiveLine={false}
               setOptions={{
-                enableBasicAutocompletion: false,
-                enableLiveAutocompletion: false,
-                enableSnippets: false,
                 showLineNumbers: true,
                 tabSize: 2
               }}
@@ -139,9 +137,6 @@ const App = () => {
               value={store.rules.text}
               highlightActiveLine={false}
               setOptions={{
-                enableBasicAutocompletion: false,
-                enableLiveAutocompletion: false,
-                enableSnippets: false,
                 showLineNumbers: true,
                 tabSize: 2
               }}
@@ -150,31 +145,62 @@ const App = () => {
         </Tabs>
       </div>
       <div className="App-preview">
-        <div className="App-previewTitle">
-          <h2 className="App-previewTitleLiteral">PREVIEW</h2>
-          <div>
-            <AtomButton size="small" onClick={handlerClickDownloadButton}>
-              Download JSON
-            </AtomButton>
-          </div>
-        </div>
-        <div className={classNameFormBuilderContainer}>
-          {!store.fields.error && !store.rules.error ? (
-            <FormBuilder
-              key={JSON.stringify(store.json)}
-              json={store.json}
-              initialFields={store.initialFields}
-              onChange={handlerChangeFormBuilder}
+        <Tabs
+          defaultIndex={0}
+          actions={
+            <>
+              <AtomButton size="small" onClick={handlerClickDownloadButton}>
+                Download JSON
+              </AtomButton>
+              <a
+                href="https://github.com/SUI-Components/formbuilder-workbench"
+                className="App-github"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github width="24px" height="24px" />
+              </a>
+            </>
+          }
+        >
+          <Tab label="Preview">
+            <div className={classNameFormBuilderContainer}>
+              {!store.fields.error && !store.rules.error ? (
+                <FormBuilder
+                  key={JSON.stringify(store.json)}
+                  json={store.json}
+                  onChange={handlerChangeFormBuilder}
+                />
+              ) : (
+                <pre>
+                  <code>
+                    {store.fields.error?.stack}
+                    {store.rules.error?.stack}
+                  </code>
+                </pre>
+              )}
+            </div>
+          </Tab>
+          <Tab label="Result">
+            <AceEditor
+              style={{
+                width: '100%',
+                height: 'calc(100vh - 50px)'
+              }}
+              className="App-editorCanvas"
+              mode="json"
+              theme="monokai"
+              name="TextAreaFields"
+              fontSize={14}
+              value={JSON.stringify(store.fieldsValues, null, 2)}
+              highlightActiveLine={false}
+              setOptions={{
+                showLineNumbers: true,
+                tabSize: 2
+              }}
             />
-          ) : (
-            <pre>
-              <code>
-                {store.fields.error?.stack}
-                {store.rules.error?.stack}
-              </code>
-            </pre>
-          )}
-        </div>
+          </Tab>
+        </Tabs>
       </div>
     </div>
   )

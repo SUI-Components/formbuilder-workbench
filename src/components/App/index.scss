@@ -39,7 +39,7 @@
   }
 
   &-formContainer {
-    box-sizing: content-box;
+    box-sizing: border-box;
     flex-grow: 1;
     height: calc(100vh - #{$h-Headers});
     overflow-x: auto;
@@ -50,6 +50,27 @@
       background-color: $c-error;
       color: $c-white;
       font-size: $fz-xs;
+    }
+  }
+
+  &-results {
+    box-sizing: content-box;
+    flex-grow: 1;
+    height: calc(100vh - #{$h-Headers});
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: $p-l;
+  }
+
+  &-github {
+    height: $h-Headers;
+    width: $h-Headers;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & svg {
+      fill: $c-monokai-dark-foreground;
     }
   }
 }
