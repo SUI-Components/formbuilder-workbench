@@ -34,7 +34,7 @@ const STORE_BASE = {
   fields: {text: JSON.stringify(BASE_FORM.form.fields, null, 2)},
   rules: {text: JSON.stringify(BASE_FORM.form.rules, null, 2)}
 }
-export const STORE = !error ? store : STORE_BASE
+export const STORE = error !== undefined ? STORE_BASE : store
 
 const saveLocalStorage = name => state => {
   if (!state.fields.error && !state.rules.error) {
