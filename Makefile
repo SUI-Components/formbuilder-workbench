@@ -21,7 +21,7 @@ release:
 	git config --global user.email "carlosvillu@gmail.com"
 	git config --global user.name "carlosvillu"
 	git remote rm origin
-	git remote add origin https://carlosvillu:${GH_TOKEN}@github.com/SUI-Components/formbuilder-workbench.git > dev/null 2>&1
+	git remote add origin https://carlosvillu:${GH_TOKEN}@github.com/SUI-Components/formbuilder-workbench.git > /dev/null 2>&1
 	git checkout master
 	git pull origin master
 	rm -Rf package-lock.js
