@@ -84,7 +84,7 @@ $c-monokai-accent: #1e1f1a !default;
 
 $c-monokai-dark-foreground: #ffffff !default;
 $c-monokai-accent-foreground: #ffffff !default;
-$c-monokai-action-foreground: #ffffff !default;
+$c-monokai-action-foreground: $c-monokai-dark !default;
 
 // Absolute colors / common colors to avoid linting alerts on hardcoded values
 $c-white: #ffffff !default;
