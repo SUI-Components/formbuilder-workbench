@@ -1,3 +1,7 @@
+const STORE_KEY = '__store__'
+
+const pipe = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)))
+
 const parseOrFail = str => {
   let obj
   try {
@@ -21,15 +25,25 @@ const BASE_FORM = {
     rules: {}
   }
 }
-export const STORE = {
+
+const [error, store] = parseOrFail(window.localStorage.getItem(STORE_KEY))
+const STORE_BASE = {
   json: BASE_FORM,
   initialFields: {},
   modal: {open: false, text: '', error: null},
   fields: {text: JSON.stringify(BASE_FORM.form.fields, null, 2)},
   rules: {text: JSON.stringify(BASE_FORM.form.rules, null, 2)}
 }
+export const STORE = !error ? store : STORE_BASE
 
-export const reducer = (state, action) => {
+const saveLocalStorage = name => state => {
+  if (!state.fields.error && !state.rules.error) {
+    window.localStorage.setItem(name, JSON.stringify(state))
+  }
+  return state
+}
+
+const internalReducer = (state, action) => {
   switch (action.type) {
     case 'MODAL_UPDATE': {
       return {
@@ -131,8 +145,12 @@ export const reducer = (state, action) => {
         }
       }
     }
+    case 'RESET_STATE':
+      return STORE_BASE
     default: {
       return state
     }
   }
 }
+
+export const reducer = pipe(internalReducer, saveLocalStorage(STORE_KEY))

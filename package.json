@@ -21,7 +21,8 @@
     "@s-ui/mono": "1"
   },
   "scripts": {
-    "co": "npx sui-mono commit"
+    "co": "npx sui-mono commit",
+    "start": "npx sui-bundler dev"
   },
   "keywords": [],
   "author": "",
