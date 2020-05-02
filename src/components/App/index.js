@@ -45,6 +45,10 @@ const App = () => {
     return dispatch({type: 'MODAL_UPDATE', open: false})
   }, [])
 
+  const handlerClickResetState = useCallback(() => {
+    return dispatch({type: 'RESET_STATE'})
+  }, [])
+
   // const handlerFormTextArea = useCallback((_, {value}) => {
   //   return dispatch({type: 'FORM_NEW', nextForm: value})
   // }, [])
@@ -83,9 +87,18 @@ const App = () => {
         <Tabs
           defaultIndex={0}
           actions={
-            <AtomButton size="small" onClick={handlerClickUploadButton}>
-              Upload JSON
-            </AtomButton>
+            <>
+              <AtomButton
+                size="small"
+                onClick={handlerClickResetState}
+                design="outline"
+              >
+                Clear
+              </AtomButton>
+              <AtomButton size="small" onClick={handlerClickUploadButton}>
+                Upload JSON
+              </AtomButton>
+            </>
           }
         >
           <Tab label="Fields">
@@ -95,16 +108,13 @@ const App = () => {
                 height: 'calc(100vh - 50px)'
               }}
               className="App-editorCanvas"
-              placeholder="Placeholder Text"
               mode="json"
               theme="monokai"
-              name="blah2"
+              name="TextAreaFields"
               onChange={handlerFieldsTextArea}
               fontSize={14}
-              showPrintMargin
-              showGutter
-              highlightActiveLine
               value={store.fields.text}
+              highlightActiveLine={false}
               setOptions={{
                 enableBasicAutocompletion: false,
                 enableLiveAutocompletion: false,
@@ -121,12 +131,20 @@ const App = () => {
                 height: 'calc(100vh - 50px)'
               }}
               className="App-editorCanvas"
-              editorProps={{$blockScrolling: true}}
               mode="json"
+              theme="monokai"
               name="TextAreaRules"
               onChange={handlerRulesTextArea}
-              theme="monokai"
+              fontSize={14}
               value={store.rules.text}
+              highlightActiveLine={false}
+              setOptions={{
+                enableBasicAutocompletion: false,
+                enableLiveAutocompletion: false,
+                enableSnippets: false,
+                showLineNumbers: true,
+                tabSize: 2
+              }}
             />
           </Tab>
         </Tabs>
