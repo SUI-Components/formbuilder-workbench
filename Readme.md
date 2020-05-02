@@ -1,4 +1,4 @@
-## Install form builder
+## Install form builder [![Build Status](https://travis-ci.org/SUI-Components/formbuilder-workbench.svg?branch=master)](https://travis-ci.org/SUI-Components/formbuilder-workbench)
 
 ### Installation
 
