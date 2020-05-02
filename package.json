@@ -6,8 +6,8 @@
   "dependencies": {
     "@s-ui/component-peer-dependencies": "1",
     "@s-ui/react-atom-button": "1",
-    "@s-ui/react-atom-upload": "2.1.0",
-    "@s-ui/react-form-builder": "2.1.0",
+    "@s-ui/react-atom-upload": "2",
+    "@s-ui/react-form-builder": "1",
     "@s-ui/react-molecule-modal": "1",
     "@s-ui/react-molecule-textarea-field": "3",
     "ace-builds": "1.4.11",
