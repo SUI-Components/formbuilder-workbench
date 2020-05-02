@@ -17,7 +17,7 @@ deploy: lint spa ## Deploy the SPA to Surge.sh
 	surge -d $(CDN) ./public
 
 release:
-	git pull --unshallow
+	git pull
 	git config --global user.email "carlosvillu@gmail.com"
 	git config --global user.name "carlosvillu"
 	git remote rm origin
