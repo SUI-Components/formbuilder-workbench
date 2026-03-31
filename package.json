@@ -17,7 +17,7 @@
     "reset-css": "5.0.1"
   },
   "devDependencies": {
-    "@s-ui/bundler": "5",
+    "@s-ui/bundler": "9",
     "@s-ui/lint": "3",
     "@s-ui/mono": "1"
   },
